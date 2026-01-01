@@ -9,15 +9,14 @@ class PasswordManager:
   def __init__(self):    
   # constructor. a special function that runs automatically when you create an object
 
-    self.key = None   # the self thing attaches this specific key to the object and remembers it forever
+    self.key = None   # the self thing means that the variable belongs to the object and not the function temporarily. which i get but kind of don't. 
     self.password_file = None
     self.password_dict = {}    # obviously the password dictionary
-    ## i still kinda don't understand the self dot thing but hopefully i will when i run it
  
   # 1
   def create_key(self, path):    # path to store the key into a file (i think so we don't have to make the key again?). the key is for encrypting
     self.key = Fernet.generate_key()   # key can be used for encryption and decryption
-    with open(path, "wb") as f:
+    with open(path, "wb") as f:    # it's just calling the file f.
       f.write(self.key)
 
       # this creates the key and stores it into the file for real.
@@ -28,7 +27,6 @@ class PasswordManager:
     with open(path, "rb") as f:
       self.key = f.read()
 
-      ## i don't understand the "as f" thing
 
 
    # 3
@@ -49,8 +47,8 @@ class PasswordManager:
       with open(path, "r") as f:
         for line in f:_
         site, encrypted = line.split(":")   # this just indicates whatever character u want site, encrypted the two things to be split with when it reads on screen i think. OH THE COMMA NOW MAKES SENSE!!
-        self.password_dict[site] = Fernet(self.key).decrypt(encrypted.encode()).decode()
-        ## WHAT IS THIS .ENCODE() DECODE RUBBISH AHHHHH
+        self.password_dict[site] = Fernet(self.key).decrypt(encrypted.encode()).decode())
+        # encode decode thing is just for transalting between humans and computer speak
 
     # 5
      def add_password(self, site, password):
@@ -63,7 +61,7 @@ class PasswordManager:
 
     # 6
     def get_password(self, site):
-      return self.password_dict[site]  
+      return self.password_dict[site]  # i think dict[] retrieves VALUES from key:value pairs in a dictionary but idk
 
 
 
