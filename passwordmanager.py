@@ -116,7 +116,7 @@ def main():
     else:
       print("Invalid choice.")
 
-if __name__ == "__main__":    # idk what this line does
+if __name__ == "__main__":    # don't understand this fully but python is asking "is thjis file being run directly or imported by another file?" 
   main()  
 
 
