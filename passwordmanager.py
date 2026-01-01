@@ -74,7 +74,7 @@ def main():
     "youtube" = "helloworld12"
   }    # these are the passwords alr stored ig
 
-  pm = PasswordManager()    # 
+  pm = PasswordManager()    # instance
 
   print("""What do you want to do?
   1. Create new key
@@ -110,17 +110,22 @@ def main():
     elif choice == "6":
       site = input("Enter the site you want the password for: ")
       pm.get_password(site)
-      # i did not copy the tutorial for this part i guessed and intuited before i watched the tutorial and fixed 
+      # i did not copy the tutorial for this part i guessed and intuited before i watched the tutorial and fixed below.
+      print(f"Password for {site} is {pm.get_password(site)}")
     elif choice == "7":
       done = True   # now it is done and python knows. 
       print("Bye!")  
     else:
       print("Invalid choice.")
 
+if __name__ == "__main__":    # idk what this line does
+  main()  
 
-     
 
      
 # pm = PasswordManager()    # this is an instance. i think an instance is a version of a class (which is a blueprint). say for example the class is the genes, and each instance (if there are multiple) are like siblings to each other i think.
 # pm.create_key("mykey.key")
 ## run that, you get a key file?
+
+# rb and wb is read binary and write binary so like in binary files innit like the computer 1s and 0s
+# whereas r and w are just read and write in human format ig
